@@ -1,4 +1,4 @@
-package com.benjalin.cheatsheets;
+package com.cheatsheets.sed;
 
 import picocli.CommandLine.Command;
 

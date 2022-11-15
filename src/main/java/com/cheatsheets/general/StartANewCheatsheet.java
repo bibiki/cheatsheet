@@ -1,4 +1,4 @@
-package com.benjalin.cheatsheets;
+package com.cheatsheets.general;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,18 +22,24 @@ public class StartANewCheatsheet implements Runnable {
 	public void run() {
 		
 		try {
-			if(rewrite > 0) {
-				description += "talk back";
-			}
+			
 			name += ".txt";
-			System.out.println("about to create this filename: " + cheatsheetLocation());
 			Path location = Path.of(cheatsheetLocation());
 			Files.createDirectories(location);
 			File file = new File(location.toFile(), name);
+			if(rewrite > 0) {
+				String existingContent = getExistingContent(file.toPath());
+				description = existingContent + "\n" + description;
+			}
+			
 			Files.writeString(file.toPath(), description);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private String getExistingContent(Path file) throws IOException {
+		return Files.readString(file);
 	}
 	
 	private String cheatsheetLocation() {

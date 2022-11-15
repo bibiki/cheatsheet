@@ -1,8 +1,8 @@
-package com.benjalin;
+package com.cheatsheets;
 
-import com.benjalin.cheatsheets.Clojure;
-import com.benjalin.cheatsheets.Sed;
-import com.benjalin.cheatsheets.StartANewCheatsheet;
+import com.cheatsheets.clojure.Clojure;
+import com.cheatsheets.general.StartANewCheatsheet;
+import com.cheatsheets.sed.Sed;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -23,14 +23,10 @@ public class App implements Runnable {
 	}
 	
 	public static void main(String[] args) {
-//		args = new String[7];
-//		args[0] = "add";
-//		args[1] = "--name";
-//		args[5] = "--rewrite";
-//		args[6] = "0";
-//		args[2] = "cheatsheet";
-//		args[3] = "-d";
-//		args[4] = "removing";
+		args = new String[2];
+		args[0] = "clojure";
+		args[1] = "one";
+//		args[2] = "repl";
 		int exitCode = new CommandLine(new App()).execute(args); 
         System.exit(exitCode);
 	}
