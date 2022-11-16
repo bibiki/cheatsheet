@@ -7,14 +7,10 @@ import com.cheatsheets.sed.Sed;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-/**
- * Hello world!
- *
- */
 @Command(name = "cheatsheet",
-		subcommands = {Sed.class,
-					Clojure.class,
-					StartANewCheatsheet.class}, version = "cheatsheet 1.0", mixinStandardHelpOptions = true)
+	subcommands = {Sed.class,
+			Clojure.class,
+			StartANewCheatsheet.class}, version = "cheatsheet 1.0", mixinStandardHelpOptions = true)
 public class App implements Runnable {
 	
 	@Override
@@ -23,10 +19,10 @@ public class App implements Runnable {
 	}
 	
 	public static void main(String[] args) {
-		args = new String[2];
+		args = new String[3];
 		args[0] = "clojure";
-		args[1] = "one";
-//		args[2] = "repl";
+		args[1] = "transducers";
+		args[2] = "take-while";
 		int exitCode = new CommandLine(new App()).execute(args); 
         System.exit(exitCode);
 	}
